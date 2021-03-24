@@ -1,0 +1,69 @@
+/// @description Set up 3D things
+
+show_debug_overlay(true);
+
+// Bad things happen if you turn off the depth buffer in 3D
+gpu_set_ztestenable(true);
+gpu_set_zwriteenable(true);
+
+view_mat = undefined;
+proj_mat = undefined;
+
+#region vertex format setup
+// Vertex format: data must go into vertex buffers in the order defined by this
+vertex_format_begin();
+vertex_format_add_position_3d();
+vertex_format_add_normal();
+vertex_format_add_texcoord();
+vertex_format_add_color();
+vertex_format = vertex_format_end();
+#endregion
+
+#region create the grid
+vbuffer = vertex_create_buffer();
+vertex_begin(vbuffer, vertex_format);
+
+// Create a checkerboard pattern on the floor
+var s = 128;
+for (var i = 0; i < room_width; i += s) {
+    for (var j = 0; j < room_height; j += s) {
+        if ((i % (s * 2) == 0 && j % (s * 2) == 0) || (i % (s * 2) > 0 && j % (s * 2) > 0)) {
+            var color = c_aqua;
+        } else {
+            var color = c_white;
+        }
+        
+        #region add data to the vertex buffer
+        vertex_add_point(vbuffer, i, j, 0,                  0, 0, 1,        0, 0,       color, 1);
+        vertex_add_point(vbuffer, i + s, j, 0,              0, 0, 1,        1, 0,       color, 1);
+        vertex_add_point(vbuffer, i + s, j + s, 0,          0, 0, 1,        1, 1,       color, 1);
+
+        vertex_add_point(vbuffer, i + s, j + s, 0,          0, 0, 1,        1, 1,       color, 1);
+        vertex_add_point(vbuffer, i, j + s, 0,              0, 0, 1,        0, 1,       color, 1);
+        vertex_add_point(vbuffer, i, j, 0,                  0, 0, 1,        0, 0,       color, 1);
+        #endregion
+    }
+}
+
+vertex_end(vbuffer);
+#endregion
+
+instance_create_depth(0, 0, 0, Player);
+
+vb_player = load_model("player.d3d");
+vb_tree = load_model("tree.d3d");
+buffer_tree = buffer_create_from_vertex_buffer(vb_tree, buffer_fixed, 4);
+vertex_freeze(vb_tree);
+
+#macro TREE_COUNT 1000
+#macro RANGE 2000
+tree_positions = array_create(TREE_COUNT);
+
+for (var i = 0; i < TREE_COUNT; i++) {
+    tree_positions[i] = { x: random_range(-RANGE, RANGE), y: random_range(-RANGE, RANGE), z: 0 };
+}
+
+frames = 0;
+fps_total = 0;
+
+gml_release_mode(true);
