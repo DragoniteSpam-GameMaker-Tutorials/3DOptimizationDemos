@@ -38,15 +38,13 @@ matrix_set(matrix_world, matrix_build(Player.x, Player.y, Player.z, 0, 0, 0, 1, 
 vertex_submit(vb_player, pr_trianglelist, -1);
 matrix_set(matrix_world, matrix_build_identity());
 
+var identity_matrix = matrix_build_identity();
+
 for (var i = 0; i < TREE_COUNT; i++) {
     var pos = tree_positions[i];
-    var xx = pos.x;
-    var yy = pos.y;
-    var zz = pos.z;
     
-    matrix_set(matrix_world, matrix_build(xx, yy, zz, 0, 0, 0, 1, 1, 1));
+    matrix_set(matrix_world, pos);
     vertex_submit(vb_tree, pr_trianglelist, sprite_get_texture(spr_tree, 0));
-    matrix_set(matrix_world, matrix_build_identity());
 }
 
 shader_reset();

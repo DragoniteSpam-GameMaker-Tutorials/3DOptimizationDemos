@@ -37,7 +37,7 @@ for (var i = 0; i < room_width; i += s) {
         vertex_add_point(vbuffer, i, j, 0,                  0, 0, 1,        0, 0,       color, 1);
         vertex_add_point(vbuffer, i + s, j, 0,              0, 0, 1,        1, 0,       color, 1);
         vertex_add_point(vbuffer, i + s, j + s, 0,          0, 0, 1,        1, 1,       color, 1);
-
+        
         vertex_add_point(vbuffer, i + s, j + s, 0,          0, 0, 1,        1, 1,       color, 1);
         vertex_add_point(vbuffer, i, j + s, 0,              0, 0, 1,        0, 1,       color, 1);
         vertex_add_point(vbuffer, i, j, 0,                  0, 0, 1,        0, 0,       color, 1);
@@ -60,7 +60,11 @@ vertex_freeze(vb_tree);
 tree_positions = array_create(TREE_COUNT);
 
 for (var i = 0; i < TREE_COUNT; i++) {
-    tree_positions[i] = { x: random_range(-RANGE, RANGE), y: random_range(-RANGE, RANGE), z: 0 };
+    //tree_positions[i] = { x: random_range(-RANGE, RANGE), y: random_range(-RANGE, RANGE), z: 0 };
+    tree_positions[i] = matrix_build(random_range(-RANGE, RANGE), random_range(-RANGE, RANGE), 0,
+        0, 0, 0,
+        1, 1, 1
+    );
 }
 
 frames = 0;
