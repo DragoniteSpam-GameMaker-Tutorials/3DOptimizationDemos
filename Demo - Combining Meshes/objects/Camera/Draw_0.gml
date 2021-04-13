@@ -39,14 +39,10 @@ vertex_submit(vb_player, pr_trianglelist, -1);
 matrix_set(matrix_world, matrix_build_identity());
 
 for (var i = 0; i < TREE_COUNT; i++) {
-    var pos = tree_positions[i];
-    var xx = pos.x;
-    var yy = pos.y;
-    var zz = pos.z;
+    var data = tree_data[i];
     
-    matrix_set(matrix_world, matrix_build(xx, yy, zz, 0, 0, 0, 1, 1, 1));
-    vertex_submit(vb_tree, pr_trianglelist, sprite_get_texture(spr_tree, 0));
-    matrix_set(matrix_world, matrix_build_identity());
+    matrix_set(matrix_world, data.matrix);
+    vertex_submit(data.model, pr_trianglelist, data.texture);
 }
 
 shader_reset();
