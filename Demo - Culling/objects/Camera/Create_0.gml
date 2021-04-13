@@ -65,5 +65,3 @@ for (var i = 0; i < TREE_COUNT; i++) {
 
 frames = 0;
 fps_total = 0;
-
-gml_release_mode(true);
