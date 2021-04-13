@@ -55,8 +55,8 @@ vb_tree = load_model("tree.d3d");
 buffer_tree = buffer_create_from_vertex_buffer(vb_tree, buffer_fixed, 4);
 vertex_freeze(vb_tree);
 
-#macro TREE_COUNT 1000
-#macro RANGE 2000
+#macro TREE_COUNT 10000
+#macro RANGE 5000
 tree_positions = array_create(TREE_COUNT);
 
 for (var i = 0; i < TREE_COUNT; i++) {
