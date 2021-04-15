@@ -111,6 +111,7 @@ for (var i = 0; i < TREE_COUNT; i++) {
 }
 
 vertex_end(vb_combine);
+vertex_freeze(vb_combine);
 
 frames = 0;
 fps_total = 0;
