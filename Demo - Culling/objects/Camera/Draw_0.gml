@@ -10,7 +10,7 @@ var uniform_light_cutoff = shader_get_uniform(shd_basic_3d_stuff, "lightCutoffAn
 shader_set_uniform_f(uniform_light_pos, 250, 250, 64);
 shader_set_uniform_f(uniform_light_color, 1, 1, 1, 1);
 shader_set_uniform_f(uniform_light_range, 500);
-shader_set_uniform_f(uniform_light_dir, -1, -1, -1);
+shader_set_uniform_f(uniform_light_dir, dcos(current_time / 10), -dsin(current_time / 10), -1);
 shader_set_uniform_f(uniform_light_cutoff, dcos(45));
 
 // 3D projections require a view and projection matrix
@@ -37,17 +37,16 @@ vertex_submit(vbuffer, pr_trianglelist, sprite_get_texture(spr_grass, 0));
 matrix_set(matrix_world, matrix_build(Player.x, Player.y, Player.z, 0, 0, 0, 1, 1, 1));
 vertex_submit(vb_player, pr_trianglelist, -1);
 matrix_set(matrix_world, matrix_build_identity());
-
+/*
 for (var i = 0; i < TREE_COUNT; i++) {
-    var pos = tree_positions[i];
-    var xx = pos.x;
-    var yy = pos.y;
-    var zz = pos.z;
+    var data = tree_data[i];
     
-    matrix_set(matrix_world, matrix_build(xx, yy, zz, 0, 0, 0, 1, 1, 1));
-    vertex_submit(vb_tree, pr_trianglelist, sprite_get_texture(spr_tree, 0));
-    matrix_set(matrix_world, matrix_build_identity());
+    matrix_set(matrix_world, matrix_build(data.x, data.y, 0, 0, 0, data.rotation, 1, 1, 1));
+    vertex_submit(data.model, pr_trianglelist, data.texture);
 }
+*/
+
+vertex_submit(vb_combine, pr_trianglelist, sprite_get_texture(spr_tree, 0));
 
 shader_reset();
 matrix_set(matrix_world, matrix_build_identity());
