@@ -58,20 +58,19 @@ vb_merry = load_model("merry.d3d");
 #macro RANGE 3000
 tree_positions = array_create(TREE_COUNT);
 
+vb_combine = vertex_create_buffer();
+vertex_begin(vb_combine, vertex_format);
+
 for (var i = 0; i < TREE_COUNT; i++) {
-    tree_data[i] = {
-        model: choose(vb_tree, vb_tree),
-        texture: -1,
-        matrix: matrix_build(
-            random_range(-RANGE, RANGE), random_range(-RANGE, RANGE), 0,
-            0, 0, random(360),
-            1, 1, 1
-        ),
-    };
-    if (tree_data[i].model == vb_tree) {
-        tree_data[i].texture = sprite_get_texture(spr_tree, 0);
-    }
+    vertex_buffer_add_buffer(vb_combine, vb_tree, matrix_build(
+        random_range(-RANGE, RANGE), random_range(-RANGE, RANGE), 0,
+        0, 0, random(360),
+        1, 1, 1
+    ));
 }
+
+vertex_end(vb_combine);
+vertex_freeze(vb_combine);
 
 frames = 0;
 fps_total = 0;

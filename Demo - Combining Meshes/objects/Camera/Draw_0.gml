@@ -37,14 +37,15 @@ vertex_submit(vbuffer, pr_trianglelist, sprite_get_texture(spr_grass, 0));
 matrix_set(matrix_world, matrix_build(Player.x, Player.y, Player.z, 0, 0, 0, 1, 1, 1));
 vertex_submit(vb_player, pr_trianglelist, -1);
 matrix_set(matrix_world, matrix_build_identity());
-
+/*
 for (var i = 0; i < TREE_COUNT; i++) {
     var data = tree_data[i];
     
     matrix_set(matrix_world, data.matrix);
     vertex_submit(data.model, pr_trianglelist, data.texture);
 }
-
+*/
+vertex_submit(vb_combine, pr_trianglelist, sprite_get_texture(spr_tree, 0));
 shader_reset();
 matrix_set(matrix_world, matrix_build_identity());
 

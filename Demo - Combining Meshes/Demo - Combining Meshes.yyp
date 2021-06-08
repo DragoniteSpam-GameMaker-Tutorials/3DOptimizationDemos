@@ -8,6 +8,7 @@
     {"id":{"name":"draw_sprite_billboard","path":"scripts/draw_sprite_billboard/draw_sprite_billboard.yy",},"order":8,},
     {"id":{"name":"spr_heart","path":"sprites/spr_heart/spr_heart.yy",},"order":1,},
     {"id":{"name":"shd_basic_3d_stuff_colorless","path":"shaders/shd_basic_3d_stuff_colorless/shd_basic_3d_stuff_colorless.yy",},"order":1,},
+    {"id":{"name":"vertex_buffer_add_buffer","path":"scripts/vertex_buffer_add_buffer/vertex_buffer_add_buffer.yy",},"order":12,},
     {"id":{"name":"screen_to_world","path":"scripts/screen_to_world/screen_to_world.yy",},"order":3,},
     {"id":{"name":"shd_basic_3d_stuff","path":"shaders/shd_basic_3d_stuff/shd_basic_3d_stuff.yy",},"order":0,},
     {"id":{"name":"Camera","path":"objects/Camera/Camera.yy",},"order":0,},
@@ -51,7 +52,7 @@
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"merry.d3d","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
-    "IDEVersion": "2.3.2.556",
+    "IDEVersion": "2.3.2.560",
   },
   "resourceVersion": "1.4",
   "name": "Demo - Combining Meshes",
