@@ -54,7 +54,7 @@ vb_player = load_model("player.d3d");
 vb_tree = load_model("tree.d3d");
 vb_merry = load_model("merry.d3d");
 
-#macro TREE_COUNT 2500
+#macro TREE_COUNT 1000
 #macro RANGE 3000
 tree_positions = array_create(TREE_COUNT);
 
@@ -64,7 +64,7 @@ vertex_begin(vb_combine, vertex_format);
 for (var i = 0; i < TREE_COUNT; i++) {
     vertex_buffer_add_buffer(vb_combine, vb_tree, matrix_build(
         random_range(-RANGE, RANGE), random_range(-RANGE, RANGE), 0,
-        0, 0, random(360),
+        0, 0, 0,
         1, 1, 1
     ));
 }

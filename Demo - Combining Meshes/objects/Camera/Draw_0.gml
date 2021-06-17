@@ -15,7 +15,7 @@ shader_set_uniform_f(uniform_light_cutoff, dcos(45));
 
 // 3D projections require a view and projection matrix
 var camera = camera_get_active();
-var camera_distance = 160;
+var camera_distance = 640;
 
 var xto = Player.x;
 var yto = Player.y;
@@ -45,7 +45,8 @@ for (var i = 0; i < TREE_COUNT; i++) {
     vertex_submit(data.model, pr_trianglelist, data.texture);
 }
 */
-vertex_submit(vb_combine, pr_trianglelist, sprite_get_texture(spr_tree, 0));
+vertex_submit(vb_combine, pr_trianglelist, sprite_get_texture(spr_brokenvector, 0));
+//vertex_submit(vb_tree, pr_trianglelist, sprite_get_texture(spr_brokenvector, 0));
 shader_reset();
 matrix_set(matrix_world, matrix_build_identity());
 
