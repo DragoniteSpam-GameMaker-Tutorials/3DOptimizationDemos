@@ -5,7 +5,7 @@
     "path": "folders/Shaders.yy",
   },
   "resourceVersion": "1.0",
-  "name": "shd_basic_3d_stuff_colorless",
+  "name": "shd_point_lights_many",
   "tags": [],
   "resourceType": "GMShader",
 }

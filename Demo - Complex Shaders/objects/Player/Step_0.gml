@@ -12,7 +12,7 @@ if (mouse_lock) {
         game_end();
     }
 
-    var move_speed = 4;
+    var move_speed = 10;
     var dx = 0;
     var dy = 0;
 

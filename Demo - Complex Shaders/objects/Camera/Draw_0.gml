@@ -1,17 +1,19 @@
 /// @description Draw the 3D world
 draw_clear(c_black);
 
-shader_set(shd_basic_3d_stuff);
-var uniform_light_pos = shader_get_uniform(shd_basic_3d_stuff, "lightPosition");
-var uniform_light_color = shader_get_uniform(shd_basic_3d_stuff, "lightColor");
-var uniform_light_range = shader_get_uniform(shd_basic_3d_stuff, "lightRange");
-var uniform_light_dir = shader_get_uniform(shd_basic_3d_stuff, "lightDirection");
-var uniform_light_cutoff = shader_get_uniform(shd_basic_3d_stuff, "lightCutoffAngle");
-shader_set_uniform_f(uniform_light_pos, 250, 250, 64);
-shader_set_uniform_f(uniform_light_color, 1, 1, 1, 1);
-shader_set_uniform_f(uniform_light_range, 500);
-shader_set_uniform_f(uniform_light_dir, -1, -1, -1);
-shader_set_uniform_f(uniform_light_cutoff, dcos(45));
+if (keyboard_check(vk_space)) {
+    current_shader = shd_point_lights_vertex;
+} else {
+    current_shader = shd_point_lights_fragment;
+}
+
+shader_set(current_shader);
+var uniform_light_pos = shader_get_uniform(current_shader, "lightPosition");
+var uniform_light_color = shader_get_uniform(current_shader, "lightColor");
+var uniform_light_range = shader_get_uniform(current_shader, "lightRange");
+shader_set_uniform_f_array(uniform_light_pos, light_positions);
+shader_set_uniform_f_array(uniform_light_color, light_colors);
+shader_set_uniform_f_array(uniform_light_range, light_ranges);
 
 // 3D projections require a view and projection matrix
 var camera = camera_get_active();
