@@ -17,7 +17,7 @@ shader_set_uniform_f_array(uniform_light_range, light_ranges);
 
 // 3D projections require a view and projection matrix
 var camera = camera_get_active();
-var camera_distance = 640;
+var camera_distance = 1000;
 
 var xto = Player.x;
 var yto = Player.y;

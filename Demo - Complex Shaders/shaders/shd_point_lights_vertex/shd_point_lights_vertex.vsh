@@ -19,7 +19,7 @@ void main() {
     vec3 worldPos = (gm_Matrices[MATRIX_WORLD] * vec4(in_Position, 1.)).xyz;
     vec3 worldNormal = normalize(gm_Matrices[MATRIX_WORLD] * vec4(in_Normal, 0.)).xyz;
     
-    vec3 light = vec3(0.4);
+    vec3 light = vec3(0.1);
     for (int i = 0; i < LIGHT_COUNT; i++) {
         vec3 lightDirection = normalize(lightPosition[i] - worldPos);
         float dist = length(lightPosition[i] - worldPos);

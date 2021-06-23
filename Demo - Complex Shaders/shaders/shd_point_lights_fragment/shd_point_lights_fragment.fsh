@@ -13,7 +13,7 @@ varying vec3 v_worldNormal;
 void main() {
     vec4 startingColor = v_vColour * texture2D(gm_BaseTexture, v_vTexcoord);
     
-    vec3 light = vec3(0.4);
+    vec3 light = vec3(0.1);
     for (int i = 0; i < LIGHT_COUNT; i++) {
         vec3 lightDirection = normalize(lightPosition[i] - v_worldPosition);
         float dist = length(lightPosition[i] - v_worldPosition);
