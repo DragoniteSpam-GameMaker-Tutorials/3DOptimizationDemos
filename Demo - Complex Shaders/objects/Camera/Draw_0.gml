@@ -1,7 +1,12 @@
 /// @description Draw the 3D world
 draw_clear(c_black);
 
-current_shader = shd_point_lights_fragment;
+if (keyboard_check(vk_space)) {
+    current_shader = shd_point_lights_vertex;
+} else {
+    current_shader = shd_point_lights_fragment;
+}
+
 shader_set(current_shader);
 var uniform_light_pos = shader_get_uniform(current_shader, "lightPosition");
 var uniform_light_color = shader_get_uniform(current_shader, "lightColor");
