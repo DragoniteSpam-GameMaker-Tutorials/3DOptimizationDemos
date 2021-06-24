@@ -80,8 +80,8 @@ light_positions = array_create(3 * LIGHT_COUNT);
 light_colors = array_create(3 * LIGHT_COUNT);
 light_ranges = array_create(LIGHT_COUNT);
 for (var i = 0; i < LIGHT_COUNT; i++) {
-    light_positions[i * 3 + 0] = random_range(-RANGE, RANGE);
-    light_positions[i * 3 + 1] = random_range(-RANGE, RANGE);
+    light_positions[i * 3 + 0] = random_range(0, RANGE);
+    light_positions[i * 3 + 1] = random_range(0, RANGE);
     light_positions[i * 3 + 2] = random_range(50, 200);
     if (random(1) < 0.5) {              // white light
         light_colors[i * 3 + 0] = 1;
