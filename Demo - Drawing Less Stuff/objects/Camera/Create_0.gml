@@ -52,25 +52,27 @@ instance_create_depth(0, 0, 0, Player);
 
 vb_player = load_model("player.d3d");
 vb_tree = load_model("tree.d3d");
+vb_tree_lod = load_model("tree_lod.d3d");
 vb_merry = load_model("merry.d3d");
 
-#macro TREE_COUNT 15000
+#macro TREE_COUNT 1000
 #macro RANGE 4000
-tree_positions = array_create(TREE_COUNT);
+tree_data = array_create(TREE_COUNT);
 
-vb_combine = vertex_create_buffer();
-vertex_begin(vb_combine, vertex_format);
+//vb_combine = vertex_create_buffer();
+//vertex_begin(vb_combine, vertex_format);
 
 for (var i = 0; i < TREE_COUNT; i++) {
-    vertex_buffer_add_buffer(vb_combine, vb_tree, matrix_build(
-        random_range(0, RANGE), random_range(0, RANGE), 0,
-        0, 0, 0,
-        1, 1, 1
-    ));
+    //vertex_buffer_add_buffer(vb_combine, vb_tree, matrix);
+    tree_data[i] = {
+        texture: sprite_get_texture(spr_tree, 0),
+        x: random_range(0, RANGE),
+        y: random_range(0, RANGE),
+    };
 }
 
-vertex_end(vb_combine);
-vertex_freeze(vb_combine);
+//vertex_end(vb_combine);
+//vertex_freeze(vb_combine);
 
 frames = 0;
 fps_total = 0;
@@ -82,11 +84,13 @@ light_ranges = array_create(LIGHT_COUNT);
 for (var i = 0; i < LIGHT_COUNT; i++) {
     light_positions[i * 3 + 0] = random_range(0, RANGE);
     light_positions[i * 3 + 1] = random_range(0, RANGE);
-    light_positions[i * 3 + 2] = random_range(50, 200);
+    light_positions[i * 3 + 2] = random_range(100, 500);
     light_colors[i * 3 + 0] = 1;
     light_colors[i * 3 + 1] = 1;
     light_colors[i * 3 + 2] = 1;
-    light_ranges[i] = random_range(100, 1000);
+    light_ranges[i] = random_range(800, 1600);
 }
 
 current_shader = shd_point_lights_fragment;
+
+overhead_camera_surface = surface_create(480, 320);
