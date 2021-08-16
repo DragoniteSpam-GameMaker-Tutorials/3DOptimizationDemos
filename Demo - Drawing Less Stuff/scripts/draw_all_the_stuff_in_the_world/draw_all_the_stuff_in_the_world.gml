@@ -31,9 +31,14 @@ function draw_all_the_stuff_in_the_world() {
     
     for (var i = 0; i < TREE_COUNT; i++) {
         var data = tree_data[i];
-        //matrix_set(matrix_world, data.matrix);
+        var dist_to_tree = point_distance_3d(xfrom, yfrom, zfrom, data.x, data.y, 0);
+        
         matrix_set(matrix_world, matrix_build(data.x, data.y, 0, 0, 0, 0, 1, 1, 1));
-        vertex_submit(vb_tree, pr_trianglelist, data.texture);
+        if (dist_to_tree < 5000) {
+            vertex_submit(vb_tree, pr_trianglelist, data.texture);
+        } else {
+            vertex_submit(vb_tree_lod, pr_trianglelist, data.texture);
+        }
     }
     
     //vertex_submit(vb_combine, pr_trianglelist, sprite_get_texture(spr_tree, 0));

@@ -10,6 +10,8 @@ draw_text(32, i++ * 20, "Tree count: " + string(TREE_COUNT));
 //draw_text(32, i++ * 20, "Vertices: " + string(vertex_get_number(vb_combine)));
 draw_text(32, i++ * 20, "Shader: " + shader_get_name(current_shader));
 
+//////////////////////////////////////////////////
+
 if (!surface_exists(overhead_camera_surface)) {
     overhead_camera_surface = surface_create(480, 320);
 }
@@ -35,7 +37,7 @@ camera_set_view_mat(camera, view_mat);
 camera_set_proj_mat(camera, proj_mat);
 camera_apply(camera);
 
-draw_all_the_stuff_in_the_world(xfrom, yfrom, zfrom, xto, yto, zto);
+draw_all_the_stuff_in_the_world();
 surface_reset_target();
 
 draw_surface(overhead_camera_surface, window_get_width() - 480, 0);

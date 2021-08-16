@@ -53,7 +53,6 @@ instance_create_depth(0, 0, 0, Player);
 vb_player = load_model("player.d3d");
 vb_tree = load_model("tree.d3d");
 vb_tree_lod = load_model("tree_lod.d3d");
-vb_merry = load_model("merry.d3d");
 
 #macro TREE_COUNT 1000
 #macro RANGE 4000
