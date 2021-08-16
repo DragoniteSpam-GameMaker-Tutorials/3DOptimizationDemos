@@ -33,11 +33,16 @@ function draw_all_the_stuff_in_the_world() {
         var data = tree_data[i];
         var dist_to_tree = point_distance_3d(xfrom, yfrom, zfrom, data.x, data.y, 0);
         
+        var dir_to_tree = point_direction(xfrom, yfrom, data.x, data.y);
+        var dir_to_camera = point_direction(xfrom, yfrom, xto, yto);
+        var direction_difference = abs(angle_difference(dir_to_tree, dir_to_camera));
+        if (direction_difference < 30 * 16 / 9) {
         matrix_set(matrix_world, matrix_build(data.x, data.y, 0, 0, 0, 0, 1, 1, 1));
-        if (dist_to_tree < 5000) {
-            vertex_submit(vb_tree, pr_trianglelist, data.texture);
-        } else {
-            vertex_submit(vb_tree_lod, pr_trianglelist, data.texture);
+            if (dist_to_tree < 5000) {
+                vertex_submit(vb_tree, pr_trianglelist, data.texture);
+            } else {
+                vertex_submit(vb_tree_lod, pr_trianglelist, data.texture);
+            }
         }
     }
     
