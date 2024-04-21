@@ -1,0 +1,17 @@
+{
+  "FolderOrderSettings":[
+    {"name":"graphics","order":38,"path":"folders/graphics.yy",},
+    {"name":"object","order":39,"path":"folders/object.yy",},
+  ],
+  "ResourceOrderSettings":[
+    {"name":"obj_camera","order":40,"path":"objects/obj_camera/obj_camera.yy",},
+    {"name":"obj_grass","order":5,"path":"objects/obj_grass/obj_grass.yy",},
+    {"name":"obj_player","order":2,"path":"objects/obj_player/obj_player.yy",},
+    {"name":"Room1","order":14,"path":"rooms/Room1/Room1.yy",},
+    {"name":"Group_Code","order":32,"path":"scripts/Group_Code/Group_Code.yy",},
+    {"name":"shd_diorama","order":41,"path":"shaders/shd_diorama/shd_diorama.yy",},
+    {"name":"spr_grass","order":8,"path":"sprites/spr_grass/spr_grass.yy",},
+    {"name":"spr_main","order":11,"path":"sprites/spr_main/spr_main.yy",},
+    {"name":"ts_main","order":16,"path":"tilesets/ts_main/ts_main.yy",},
+  ],
+}
