@@ -1,0 +1,16 @@
+{
+  "FolderOrderSettings":[],
+  "ResourceOrderSettings":[
+    {"name":"fnt_game","order":5,"path":"fonts/fnt_game/fnt_game.yy",},
+    {"name":"Player","order":1,"path":"objects/Player/Player.yy",},
+    {"name":"draw_sprite_billboard","order":8,"path":"scripts/draw_sprite_billboard/draw_sprite_billboard.yy",},
+    {"name":"load_model","order":1,"path":"scripts/load_model/load_model.yy",},
+    {"name":"load_obj","order":10,"path":"scripts/load_obj/load_obj.yy",},
+    {"name":"screen_to_world","order":3,"path":"scripts/screen_to_world/screen_to_world.yy",},
+    {"name":"vertex_buffer_add_buffer","order":12,"path":"scripts/vertex_buffer_add_buffer/vertex_buffer_add_buffer.yy",},
+    {"name":"shd_basic_3d_stuff_colorless","order":1,"path":"shaders/shd_basic_3d_stuff_colorless/shd_basic_3d_stuff_colorless.yy",},
+    {"name":"spr_brokenvector","order":13,"path":"sprites/spr_brokenvector/spr_brokenvector.yy",},
+    {"name":"spr_heart","order":1,"path":"sprites/spr_heart/spr_heart.yy",},
+    {"name":"spr_tree","order":11,"path":"sprites/spr_tree/spr_tree.yy",},
+  ],
+}

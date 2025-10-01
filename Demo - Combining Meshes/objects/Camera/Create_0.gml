@@ -61,16 +61,26 @@ tree_positions = array_create(TREE_COUNT);
 vb_combine = vertex_create_buffer();
 vertex_begin(vb_combine, vertex_format);
 
+var t = get_timer();
+var mat = matrix_build_identity();
+
 for (var i = 0; i < TREE_COUNT; i++) {
-    vertex_buffer_add_buffer(vb_combine, vb_tree, matrix_build(
-        random_range(-RANGE, RANGE), random_range(-RANGE, RANGE), 0,
-        0, 0, 0,
-        1, 1, 1
-    ));
+    mat[12] = random_range(-RANGE, RANGE);
+    mat[13] = random_range(-RANGE, RANGE);
+    vertex_buffer_add_buffer(vb_combine, vb_tree, mat);
 }
+
+show_debug_message($"Time to merge meshes: {(get_timer() - t) / 1000_000}");
 
 vertex_end(vb_combine);
 vertex_freeze(vb_combine);
+
+window_set_size(display_get_width(), display_get_height());
+surface_resize(application_surface, display_get_width(), display_get_height());
+window_set_fullscreen(true);
+
+dbg_view("vsync", true);
+dbg_text($"");
 
 frames = 0;
 fps_total = 0;

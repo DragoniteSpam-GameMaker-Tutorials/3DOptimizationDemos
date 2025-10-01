@@ -1,12 +1,13 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Demo - Combining Meshes",
-    "path": "Demo - Combining Meshes.yyp",
+  "$GMScript":"v1",
+  "%Name":"load_obj",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"load_obj",
+  "parent":{
+    "name":"Demo - Combining Meshes",
+    "path":"Demo - Combining Meshes.yyp",
   },
-  "resourceVersion": "1.0",
-  "name": "load_obj",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

@@ -45,7 +45,16 @@ for (var i = 0; i < TREE_COUNT; i++) {
     vertex_submit(data.model, pr_trianglelist, data.texture);
 }
 */
-vertex_submit(vb_combine, pr_trianglelist, sprite_get_texture(spr_brokenvector, 0));
+
+// Everything must be drawn after the 3D projection has been set
+for (var i = -2; i <= 2; i++) {
+    for (var j = -2; j <= 2; j++) {
+        matrix_set(matrix_world, matrix_build(i * 100, j * 100, 0, 0, 0, 0, 1, 1, 1));
+        vertex_submit(vb_combine, pr_trianglelist, sprite_get_texture(spr_brokenvector, 0));
+    }
+}
+
+
 //vertex_submit(vb_tree, pr_trianglelist, sprite_get_texture(spr_brokenvector, 0));
 shader_reset();
 matrix_set(matrix_world, matrix_build_identity());
