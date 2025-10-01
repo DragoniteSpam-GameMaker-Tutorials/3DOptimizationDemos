@@ -1,10 +1,7 @@
 function vertex_buffer_add_buffer(destination, source, matrix) {
-    var nmatrix = [
-        matrix[00], matrix[01], matrix[02], matrix[03],
-        matrix[04], matrix[05], matrix[06], matrix[07],
-        matrix[08], matrix[09], matrix[10], matrix[11],
-                 0,          0,          0, matrix[15]
-    ];
+    var pos = array_create(4);
+    var norm = array_create(4);
+    
     var data = buffer_create_from_vertex_buffer(source, buffer_fixed, 1);
     for (var i = 0; i < buffer_get_size(data); i += 36) {
         var xx = buffer_peek(data, i + 00, buffer_f32);
@@ -17,8 +14,9 @@ function vertex_buffer_add_buffer(destination, source, matrix) {
         var yt = buffer_peek(data, i + 28, buffer_f32);
         var cc = buffer_peek(data, i + 32, buffer_u32);
         
-        var pos = matrix_transform_vertex(matrix, xx, yy, zz);
-        var norm = matrix_transform_vertex(nmatrix, nx, ny, nz);
+        matrix_transform_vertex(matrix, xx, yy, zz, 1, pos);
+        matrix_transform_vertex(matrix, nx, ny, nz, 0, norm);
+        
         var mag = point_distance_3d(0, 0, 0, norm[0], norm[1], norm[2]);
         norm[0] /= mag;
         norm[1] /= mag;

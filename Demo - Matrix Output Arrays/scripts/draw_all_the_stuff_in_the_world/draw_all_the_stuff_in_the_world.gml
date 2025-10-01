@@ -19,20 +19,27 @@ function draw_all_the_stuff_in_the_world() {
     
     var t = current_time / 100;
     
+    var translation = array_create(16);
+    var rotation = array_create(16);
+    var scale = array_create(16);
+    
+    var transform_rs = array_create(16);
+    var transform_final = array_create(16);
+    
     for (var i = 0; i < TREE_COUNT; i++) {
         var data = tree_data[i];
         var dist_to_tree = point_distance_3d(xfrom, yfrom, zfrom, data.x, data.y, 0);
         
         var dir_to_tree = point_direction(xfrom, yfrom, data.x, data.y);
         
-        var translation = matrix_build(data.x, data.y, 0, 0, 0, 0, 1, 1, 1);
-        var rotation = matrix_build(0, 0, 0, t, t, t, 1, 1, 1);
-        var scale = matrix_build(0, 0, 0, 0, 0, 0, data.scale, data.scale, data.scale)
+        matrix_build(data.x, data.y, 0, 0, 0, 0, 1, 1, 1, translation);
+        matrix_build(0, 0, 0, t, t, t, 1, 1, 1, rotation);
+        matrix_build(0, 0, 0, 0, 0, 0, data.scale, data.scale, data.scale, scale);
         
-        var transform_rs = matrix_multiply(scale, rotation);
-        var transform = matrix_multiply(transform_rs, translation);
+        matrix_multiply(scale, rotation, transform_rs);
+        matrix_multiply(transform_rs, translation, transform_final);
         
-        matrix_set(matrix_world, transform);
+        matrix_set(matrix_world, transform_final);
         if (dist_to_tree < 5000) {
             vertex_submit(vb_tree, pr_trianglelist, data.texture);
         } else {
