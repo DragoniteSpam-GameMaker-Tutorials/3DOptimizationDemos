@@ -289,8 +289,8 @@
   "maintainGms1Font":false,
   "name":"fnt_game",
   "parent":{
-    "name":"Demo - Vertex Freeze",
-    "path":"Demo - Vertex Freeze.yyp",
+    "name":"Demo - Sphere Is Visible",
+    "path":"Demo - Sphere Is Visible.yyp",
   },
   "pointRounding":0,
   "ranges":[
