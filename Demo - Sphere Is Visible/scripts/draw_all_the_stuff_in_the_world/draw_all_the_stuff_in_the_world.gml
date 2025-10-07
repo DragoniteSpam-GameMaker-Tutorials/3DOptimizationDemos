@@ -25,15 +25,14 @@ function draw_all_the_stuff_in_the_world() {
     for (var i = 0; i < TREE_COUNT; i++) {
         var data = tree_data[i];
         
-        var dist_to_tree = point_distance_3d(xfrom, yfrom, zfrom, data.x, data.y, 0);
-        var dir_to_tree = point_direction(xfrom, yfrom, data.x, data.y);
+        if (!sphere_is_visible(data.x, data.y, 0, tree_radius * data.scale)) continue;
         
         matrix_build(data.x, data.y, 0, 0, 0, 0, 1, 1, 1, translation);
-        //matrix_build(0, 0, 0, 0, 0, 0, data.scale, data.scale, data.scale, scale);
+        matrix_build(0, 0, 0, 0, 0, 0, data.scale, data.scale, data.scale, scale);
         
-        //matrix_multiply(scale, translation, transform_final);
+        matrix_multiply(scale, translation, transform_final);
         
-        matrix_set(matrix_world, translation);
+        matrix_set(matrix_world, transform_final);
         vertex_submit(vb_tree, pr_trianglelist, data.texture);
     }
     

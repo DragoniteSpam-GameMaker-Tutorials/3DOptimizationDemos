@@ -53,6 +53,8 @@ instance_create_depth(0, 0, 0, Player);
 vb_player = load_model("player.d3d");
 vb_tree = load_model("tree.d3d");
 
+tree_radius = get_vertex_buffer_radius(vb_tree);
+
 vertex_freeze(vb_tree);
 
 #macro TREE_COUNT 10_000
