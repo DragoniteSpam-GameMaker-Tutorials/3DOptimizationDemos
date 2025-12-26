@@ -1,12 +1,12 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Scripts",
-    "path": "folders/Scripts.yy",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"vertex_add_point",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "vertex_add_point",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"1.0",
+  "tags":[],
 }

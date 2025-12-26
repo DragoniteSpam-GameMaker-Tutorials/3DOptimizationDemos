@@ -1,12 +1,13 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Demo - Culling",
-    "path": "Demo - Culling.yyp",
+  "$GMScript":"v1",
+  "%Name":"draw_sprite_billboard",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"draw_sprite_billboard",
+  "parent":{
+    "name":"Demo - Culling",
+    "path":"Demo - Culling.yyp",
   },
-  "resourceVersion": "1.0",
-  "name": "draw_sprite_billboard",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

@@ -1,12 +1,13 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Demo - Culling",
-    "path": "Demo - Culling.yyp",
+  "$GMScript":"v1",
+  "%Name":"load_obj",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"load_obj",
+  "parent":{
+    "name":"Demo - Culling",
+    "path":"Demo - Culling.yyp",
   },
-  "resourceVersion": "1.0",
-  "name": "load_obj",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

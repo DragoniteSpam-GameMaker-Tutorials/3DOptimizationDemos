@@ -1,11 +1,12 @@
 {
-  "type": 1,
-  "parent": {
-    "name": "Shaders",
-    "path": "folders/Shaders.yy",
+  "$GMShader":"",
+  "%Name":"shd_point_lights_vertex",
+  "name":"shd_point_lights_vertex",
+  "parent":{
+    "name":"Shaders",
+    "path":"folders/Shaders.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "shd_point_lights_vertex",
-  "tags": [],
-  "resourceType": "GMShader",
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
 }

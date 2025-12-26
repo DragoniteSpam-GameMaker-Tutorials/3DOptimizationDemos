@@ -1,12 +1,12 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Demo - Vertex Freeze",
-    "path": "Demo - Vertex Freeze.yyp",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"draw_sprite_billboard",
+  "parent":{
+    "name":"Demo - Vertex Freeze",
+    "path":"Demo - Vertex Freeze.yyp",
   },
-  "resourceVersion": "1.0",
-  "name": "draw_sprite_billboard",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"1.0",
+  "tags":[],
 }

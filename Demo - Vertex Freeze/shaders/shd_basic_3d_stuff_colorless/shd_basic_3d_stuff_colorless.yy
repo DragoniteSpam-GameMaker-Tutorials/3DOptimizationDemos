@@ -1,11 +1,11 @@
 {
-  "type": 1,
-  "parent": {
-    "name": "Shaders",
-    "path": "folders/Shaders.yy",
+  "name":"shd_basic_3d_stuff_colorless",
+  "parent":{
+    "name":"Shaders",
+    "path":"folders/Shaders.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "shd_basic_3d_stuff_colorless",
-  "tags": [],
-  "resourceType": "GMShader",
+  "resourceType":"GMShader",
+  "resourceVersion":"1.0",
+  "tags":[],
+  "type":1,
 }

@@ -1,12 +1,13 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Demo - Complex Shaders",
-    "path": "Demo - Complex Shaders.yyp",
+  "$GMScript":"v1",
+  "%Name":"load_obj",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"load_obj",
+  "parent":{
+    "name":"Demo - Complex Shaders",
+    "path":"Demo - Complex Shaders.yyp",
   },
-  "resourceVersion": "1.0",
-  "name": "load_obj",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }
