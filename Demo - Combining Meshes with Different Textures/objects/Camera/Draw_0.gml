@@ -37,14 +37,18 @@ vertex_total += vertex_get_number(vbuffer);
 
 for (var i = 0; i < TREE_COUNT; i++) {
     var tree = tree_data[i];
-    matrix_set(matrix_world, tree.matrix);
-    vertex_submit(vb_trunk, pr_trianglelist, sprite_get_texture(tree.bark, 0));
-    vertex_submit(vb_leaves, pr_trianglelist, sprite_get_texture(tree.leaves, 0));
-    vertex_total += vertex_get_number(vb_trunk);
-    vertex_total += vertex_get_number(vb_leaves);
+	if (sphere_is_visible(tree.x, tree.y, 0, 300)) {
+	    matrix_set(matrix_world, tree.matrix);
+	    /*vertex_submit(vb_trunk, pr_trianglelist, sprite_get_texture(tree.bark, 0));
+	    vertex_submit(vb_leaves, pr_trianglelist, sprite_get_texture(tree.leaves, 0));
+	    vertex_total += vertex_get_number(vb_trunk);
+	    vertex_total += vertex_get_number(vb_leaves);*/
+		vertex_submit(tree.vbuff, pr_trianglelist, sprite_get_texture(atlas_info.atlas, 0));
+		vertex_total += vertex_get_number(tree.vbuff);
+	}
 }
 /*
-vertex_submit(vb_combine, pr_trianglelist, sprite_get_texture(spr_oakbark, 0));
+vertex_submit(vb_combine, pr_trianglelist, sprite_get_texture(atlas_info.atlas, 0));
 vertex_total += vertex_get_number(vb_combine);
 */
 shader_reset();

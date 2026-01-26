@@ -59,6 +59,32 @@ b_leaves = buffer_load("oak_leaves.vbuff");
 vb_leaves = vertex_create_buffer_from_buffer(b_leaves, vertex_format);
 vertex_freeze(vb_leaves);
 
+var texture_sprites = [
+	spr_oakbark, spr_oakbark_burnt,
+	spr_oakleaf_dark, spr_oakleaf_fall, spr_oakleaf_light
+];
+
+atlas_info = pack_sprites_v3a(texture_sprites);
+
+var bark_textures = [spr_oakbark, spr_oakbark_burnt];
+var leaf_textures = [spr_oakleaf_dark, spr_oakleaf_fall, spr_oakleaf_light];
+var tree_versions = { };
+
+for (var i = 0; i < array_length(bark_textures); i++) {
+	for (var j = 0; j < array_length(leaf_textures); j++) {
+		var vb_combine = vertex_create_buffer();
+		vertex_begin(vb_combine, vertex_format);
+		
+		vertex_buffer_add_buffer_atlased(vb_combine, b_trunk, matrix_build_identity(), bark_textures[i], atlas_info.metadata);
+		vertex_buffer_add_buffer_atlased(vb_combine, b_leaves, matrix_build_identity(), leaf_textures[j], atlas_info.metadata);
+		
+		vertex_end(vb_combine);
+		vertex_freeze(vb_combine);
+		
+		tree_versions[$ $"{sprite_get_name(bark_textures[i])},{sprite_get_name(leaf_textures[j])}"] = vb_combine;
+	}
+}
+
 #macro TREE_COUNT 30_000
 #macro RANGE 30_000
 tree_data = array_create(TREE_COUNT);
@@ -67,6 +93,8 @@ for (var i = 0; i < TREE_COUNT; i++) {
     var yy = random_range(-RANGE, RANGE);
     var scale = random_range(0.8, 2);
     var rot = random(360);
+	var bark_texture = choose(spr_oakbark, spr_oakbark_burnt);
+	var leaf_texture = choose(spr_oakleaf_dark, spr_oakleaf_fall, spr_oakleaf_light);
     tree_data[i] = {
 		x: xx,
 		y: yy,
@@ -74,8 +102,10 @@ for (var i = 0; i < TREE_COUNT; i++) {
             0, 0, rot,
             scale, scale, scale
         ),
-        bark: choose(spr_oakbark, spr_oakbark_burnt),
-        leaves: choose(spr_oakleaf_dark, spr_oakleaf_fall, spr_oakleaf_light),
+        bark: bark_texture,
+        leaves: leaf_texture,
+		
+		vbuff: tree_versions[$ $"{sprite_get_name(bark_texture)},{sprite_get_name(leaf_texture)}"]
     };
 }
 /*
@@ -86,8 +116,8 @@ var t = get_timer();
 
 for (var i = 0; i < TREE_COUNT; i++) {
 	var tree = tree_data[i];
-    vertex_buffer_add_buffer(vb_combine, b_trunk, tree.matrix);
-	vertex_buffer_add_buffer(vb_combine, b_leaves, tree.matrix);
+    vertex_buffer_add_buffer_atlased(vb_combine, b_trunk, tree.matrix, tree.bark, atlas_info.metadata);
+	vertex_buffer_add_buffer_atlased(vb_combine, b_leaves, tree.matrix, tree.leaves, atlas_info.metadata);
 }
 
 show_debug_message($"Time to merge meshes: {(get_timer() - t) / 1000_000}");

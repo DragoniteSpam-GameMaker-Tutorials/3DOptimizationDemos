@@ -2,11 +2,14 @@
   "FolderOrderSettings":[],
   "ResourceOrderSettings":[
     {"name":"fnt_game","order":5,"path":"fonts/fnt_game/fnt_game.yy",},
+    {"name":"obj_pack_sprite_3a_placeholder","order":19,"path":"objects/obj_pack_sprite_3a_placeholder/obj_pack_sprite_3a_placeholder.yy",},
     {"name":"Player","order":1,"path":"objects/Player/Player.yy",},
     {"name":"draw_sprite_billboard","order":8,"path":"scripts/draw_sprite_billboard/draw_sprite_billboard.yy",},
     {"name":"load_model","order":1,"path":"scripts/load_model/load_model.yy",},
     {"name":"load_obj","order":10,"path":"scripts/load_obj/load_obj.yy",},
+    {"name":"pack_sprites_v3a","order":21,"path":"scripts/pack_sprites_v3a/pack_sprites_v3a.yy",},
     {"name":"screen_to_world","order":3,"path":"scripts/screen_to_world/screen_to_world.yy",},
+    {"name":"vertex_buffer_add_buffer_atlased","order":22,"path":"scripts/vertex_buffer_add_buffer_atlased/vertex_buffer_add_buffer_atlased.yy",},
     {"name":"vertex_buffer_add_buffer","order":12,"path":"scripts/vertex_buffer_add_buffer/vertex_buffer_add_buffer.yy",},
     {"name":"shd_basic_3d_stuff_colorless","order":1,"path":"shaders/shd_basic_3d_stuff_colorless/shd_basic_3d_stuff_colorless.yy",},
     {"name":"spr_heart","order":1,"path":"sprites/spr_heart/spr_heart.yy",},
@@ -15,5 +18,6 @@
     {"name":"spr_oakleaf_dark","order":17,"path":"sprites/spr_oakleaf_dark/spr_oakleaf_dark.yy",},
     {"name":"spr_oakleaf_fall","order":16,"path":"sprites/spr_oakleaf_fall/spr_oakleaf_fall.yy",},
     {"name":"spr_oakleaf_light","order":15,"path":"sprites/spr_oakleaf_light/spr_oakleaf_light.yy",},
+    {"name":"spr_pack_sprite_3a_placeholder","order":20,"path":"sprites/spr_pack_sprite_3a_placeholder/spr_pack_sprite_3a_placeholder.yy",},
   ],
 }
